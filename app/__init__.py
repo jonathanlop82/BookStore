@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "Hola Mundo! Jonathan"
+    return render_template('index.html')
 
 #Funcion para enviar un mensaje de retorno de error 404
 def pagina_no_encontrada(error):
