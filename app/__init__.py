@@ -1,10 +1,22 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/login', methods=['GET','POST'])
+def login():
+    
+    if request.method == 'POST':
+        if request.form['usuario'] == 'admin' and request.form['password'] == '123456':
+            return redirect(url_for('index'))
+        else:
+            return render_template('auth/login.html')
+    else:
+        return render_template('auth/login.html')
+    
 
 #Funcion para enviar un mensaje de retorno de error 404
 def pagina_no_encontrada(error):
