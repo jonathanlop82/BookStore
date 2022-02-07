@@ -16,7 +16,7 @@ class ModeloLibro():
             libros=[]
             for row in data:
                 aut=Autor(0,row[4],row[5])
-                lib=Libro(row[0],row[1],aut,row[2],row[3])
+                lib=Libro(row[0],row[1],aut,row[2],format((row[3]),'.2f'))
                 libros.append(lib)
             return libros
 
